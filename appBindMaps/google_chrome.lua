@@ -21,42 +21,28 @@ function restoreTab()
 end
 
 function newIncognitoWindow()
-    keyStroke({"cmd", "alt"}, "I")
+    keyStroke({"cmd", "shift"}, "N")
 end
-
-function pressReturn()
-    keyStroke({}, "return")
-end
-
-function pressShiftReturn()
-    keyStroke({"shift"}, "return")
-end
-
 
 function zoomIn()
-    keyStroke({"cmd"}, "+")
+    keyStroke({"cmd", "shift"}, "=")
 end
 
 function zoomOut()
     keyStroke({"cmd"}, "-")
 end
 
-function pressDelete()
-    keyStroke({}, "delete")
-end
-
 return {
     ["pad1"]=toggleDevTools,
     ["pad2"]=nil,
-    ["pad3"]=nil,
-    ["pad4"]=nil,
+    ["pad3"]=newTab,
+    ["pad4"]=restoreTab,
     ["pad5"]=nil,
-    ["pad6"]=nil,
-    ["pad7"]=nil,
+    ["pad6"]=newIncognitoWindow,
+    ["pad7"]=zoomIn,
     ["pad8"]=nil,
     ["pad9"]=nil,
     ["pad0"]=nil,
-    ["pad="]=nil,
     ["pad-"]=nil,
     ["pad+"]=nil,
     ["ctrl_pad1"]=nil,
@@ -65,11 +51,10 @@ return {
     ["ctrl_pad4"]=nil,
     ["ctrl_pad5"]=nil,
     ["ctrl_pad6"]=nil,
-    ["ctrl_pad7"]=nil,
+    ["ctrl_pad7"]=zoomOut,
     ["ctrl_pad8"]=nil,
     ["ctrl_pad9"]=nil,
     ["ctrl_pad0"]=nil,
-    ["ctrl_pad="]=nil,
     ["ctrl_pad-"]=nil,
     ["ctrl_pad+"]=nil
 }

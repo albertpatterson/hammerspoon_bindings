@@ -11,7 +11,7 @@ local tableUtil = require("../util/table")
 local module = tableUtil.copy(binder);
 
 local modifiers = {"ctrl" }
-local keys = {"pad1","pad2","pad3","pad4","pad5","pad6","pad7","pad8","pad9","pad1","pad1","pad1","pad1","pad0", "pad=", "pad-", "pad+"};
+local keys = {"pad1","pad2","pad3","pad4","pad5","pad6","pad7","pad8","pad9","pad1","pad1","pad1","pad1","pad0", "pad-", "pad+"};
 local includeEmptyModifierSet = true
 
 function module.bindAllCombs(f)

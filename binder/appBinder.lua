@@ -26,22 +26,16 @@ function module.bindAllMaps(binder, appMaps, defaultMap)
     binder.bindAllCombs(function(modifiers, key)
         local application = hs.application.frontmostApplication()
         local appName = application:name()
-    print(appName)
         local modifierKeyHash = module.modifierKeyHash(modifiers, key)
 
-        local map = appMaps[appName]
-        if map == nil then
-            map = defaultMap
-        end
-
-        if map[modifierKeyHash] then
-            map[modifierKeyHash](application)
+        if appMaps[appName] and appMaps[appName][modifierKeyHash] then
+            appMaps[appName][modifierKeyHash](application)
+        elseif defaultMap and defaultMap[modifierKeyHash] then
+            defaultMap[modifierKeyHash](application)
         end
     end)
 
 end
-
-
 
 return module;
 

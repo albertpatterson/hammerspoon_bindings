@@ -6,12 +6,34 @@
 -- To change this template use File | Settings | File Templates.
 --
 
+local keyStroke = hs.eventtap.keyStroke
+
 function logDefault()
     print('default')
 end
 
+function pressReturn()
+    keyStroke({}, "return")
+end
+
+function pressShiftReturn()
+    keyStroke({"shift"}, "return")
+end
+
+function fullScreen()
+    keyStroke({"alt", "cmd"}, "f")
+end
+
+function rightScreen()
+    keyStroke({"alt", "cmd"}, "right")
+end
+
+function leftScreen()
+    keyStroke({"alt", "cmd"}, "left")
+end
+
 return {
-    ["pad1"]=logDefault,
+    ["pad1"]=nil,
     ["pad2"]=nil,
     ["pad3"]=nil,
     ["pad4"]=nil,
@@ -21,7 +43,6 @@ return {
     ["pad8"]=nil,
     ["pad9"]=nil,
     ["pad0"]=nil,
-    ["pad="]=nil,
     ["pad-"]=nil,
     ["pad+"]=nil,
     ["ctrl_pad1"]=nil,
@@ -33,9 +54,8 @@ return {
     ["ctrl_pad7"]=nil,
     ["ctrl_pad8"]=nil,
     ["ctrl_pad9"]=nil,
-    ["ctrl_pad0"]=nil,
-    ["ctrl_pad="]=nil,
-    ["ctrl_pad-"]=nil,
-    ["ctrl_pad+"]=nil
+    ["ctrl_pad0"]=leftScreen,
+    ["ctrl_pad-"]=rightScreen,
+    ["ctrl_pad+"]=fullScreen
 }
 
