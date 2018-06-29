@@ -6,12 +6,12 @@
 -- To change this template use File | Settings | File Templates.
 --
 
-function toggleLineComment()
-    hs.eventtap.keyStroke({"cmd"}, "/")
+function logDefault()
+    print('default')
 end
 
 return {
-    ["pad1"]=toggleLineComment,
+    ["pad1"]=logDefault,
     ["pad2"]=nil,
     ["pad3"]=nil,
     ["pad4"]=nil,

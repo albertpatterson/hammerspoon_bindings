@@ -13,4 +13,6 @@ local appMaps = {};
 appMaps["IntelliJ IDEA"] = require("appBindMaps/intellij_idea");
 appMaps["Google Chrome"] = require("appBindMaps/google_chrome");
 
-appBinder.bindAllMaps(G600binder, appMaps)
+local defaultMap = require("appBindMaps/default");
+
+appBinder.bindAllMaps(G600binder, appMaps, defaultMap)

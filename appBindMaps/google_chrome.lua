@@ -6,12 +6,6 @@
 -- To change this template use File | Settings | File Templates.
 --
 
---local module = {}
---
---module["ctrl_pad1"] = function()
---    print("intellij crlas pad1")
---end
-
 local keyStroke = hs.eventtap.keyStroke
 
 function toggleDevTools()
