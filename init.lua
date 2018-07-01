@@ -15,4 +15,4 @@ appMaps["Google Chrome"] = require("appBindMaps/google_chrome");
 
 local defaultMap = require("appBindMaps/default");
 
-appBinder.bindAllMaps(G600binder, appMaps, defaultMap)
+appBinder.bind(G600binder, appMaps, defaultMap)

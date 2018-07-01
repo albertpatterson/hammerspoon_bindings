@@ -9,7 +9,7 @@ local tableUtil = require("../util/table")
 
 local module = {}
 
-function module.modifierKeyHash(modifiers, key)
+function module.hashModifiersAndKey(modifiers, key)
     local tab = tableUtil.copy(modifiers);
     table.sort(tab);
     table.insert(tab, key);
@@ -21,17 +21,28 @@ function module.modifierKeyHash(modifiers, key)
     return hash:sub(1, hash:len()-1)
 end
 
-function module.bindAllMaps(binder, appMaps, defaultMap)
 
-    binder.bindAllCombs(function(modifiers, key)
+function module.parseModifiersAndKeyHash(hash)
+    local modifiers = {}
+    for modifier in string.gmatch(hash,"[^_]*") do
+        table.insert(modifiers, modifier)
+    end
+    return modifiers
+end
+
+function module.bind(hardwardBinder, appBindingMaps, defaultBindingMap)
+
+    hardwardBinder.bind(function(modifiers, key)
+        print(hs.inspect.inspect(modifiers))
+        print(key)
         local application = hs.application.frontmostApplication()
         local appName = application:name()
-        local modifierKeyHash = module.modifierKeyHash(modifiers, key)
+        local modifierKeyHash = module.hashModifiersAndKey(modifiers, key)
 
-        if appMaps[appName] and appMaps[appName][modifierKeyHash] then
-            appMaps[appName][modifierKeyHash](application)
-        elseif defaultMap and defaultMap[modifierKeyHash] then
-            defaultMap[modifierKeyHash](application)
+        if appBindingMaps[appName] and appBindingMaps[appName][modifierKeyHash] then
+            appBindingMaps[appName][modifierKeyHash](application)
+        elseif defaultBindingMap and defaultBindingMap[modifierKeyHash] then
+            defaultBindingMap[modifierKeyHash](application)
         end
     end)
 
