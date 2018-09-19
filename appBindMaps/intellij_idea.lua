@@ -48,9 +48,13 @@ function rename()
     keyStroke({"shift"}, "f6")
 end
 
+function getTypeInfo()
+    keyStroke({"ctrl, shift"}, "p")
+end
+
 return {
-    ["pad1"]=toggleLineComment,
-    ["pad2"]=nil,
+    ["pad1"]=getTypeInfo,
+    ["pad2"]=toggleLineComment,
     ["pad3"]=intentActions,
     ["pad4"]=classSummary,
     ["pad5"]=nil,
